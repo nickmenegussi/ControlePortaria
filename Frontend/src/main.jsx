@@ -10,11 +10,11 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Navigate to="/Home" />} />
 
         <Route path="/Home" element={<Home />} />
-        {/* <Route path="/Apartamentos" element={<Apartamentos />} />
-        <Route path="/Perfis" element={<Perfis />} />
-        <Route path="/Cadastro-Apartamento" element={<Home />} />
+        {/* <Route path="/Apartamentos" element={<Apartamentos />} /> */}
+        {/* <Route path="/Perfis" element={<Perfis />} /> */}
+        {/* <Route path="/Cadastro-Apartamento" element={<Home />} />
         <Route path="/Cadastro-Perfil" element={<Home />} />
-        <Route path="/Cadastro-Carro" element={<Home />} /> */}
+        <Route path="/Cadastro-Carro" element={<Home />} />  */}
       </Routes>
     </BrowserRouter>
   </StrictMode>
