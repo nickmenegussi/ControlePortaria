@@ -13,55 +13,55 @@ const HeaderDiv = styled.header`
   height: 13vh;
   margin: 0;
   box-sizing: border-box;
-  margin-left: -8px;
-  margin-top: -20px;
+  /* margin-left: -8px; */
+  border-top: none;
 `;
 
 const PerfisTxt = styled(Link)`
-    color: black;
-    margin-right: 8vw;
-    font-size: 18px;
-    flex-shrink: 0;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-decoration: none;
+  color: black;
+  margin-right: 8vw;
+  font-size: 18px;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
 
-&:hover {
+  &:hover {
     color: green;
-}
+  }
 `;
 
 const VeiculosTxt = styled(Link)`
-    color: black;
-    margin-right: 8vw;
-    font-size: 18px;
-    flex-shrink: 0;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-decoration: none;
+  color: black;
+  margin-right: 8vw;
+  font-size: 18px;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
 
-&:hover {
+  &:hover {
     color: green;
-}
+  }
 `;
 
 const ApartamentosTxt = styled(Link)`
-    color: black;
-    font-size: 18px;
-    flex-shrink: 0;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-decoration: none;
+  color: black;
+  font-size: 18px;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
 
-&:hover {
+  &:hover {
     color: green;
-}
+  }
 `;
 
 export default function Header() {
   return (
     <>
-      <HeaderDiv> 
+      <HeaderDiv>
         <PerfisTxt to="/Perfis">Perfis</PerfisTxt>
         <VeiculosTxt to="/Veículos">Veículos</VeiculosTxt>
         <ApartamentosTxt to="/Apartamentos">Apartamentos</ApartamentosTxt>
@@ -69,4 +69,3 @@ export default function Header() {
     </>
   );
 }
-
