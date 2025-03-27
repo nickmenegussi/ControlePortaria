@@ -1,9 +1,12 @@
 import "./index.css";
 import HomePage from "./Components/Home/HomePage";
 import Header from "./Components/Header/Header";
-import CadastroPerfilCard from "./Components/Cadastros/CadastroPerfil.Card";
-import CadastroVeiculoModal from "./Components/Cadastros/CadastroVeículo.Card";
-import CadastroApModal from "./Components/Cadastros/CadastroAP.Card";
+import CadastroPerfilCard from "./Components/Cards/CadastroPerfil.Card";
+import CadastroVeiculoCard from "./Components/Cards/CadastroVeículo.Card";
+import CadastroAPCard from "./Components/Cards/CadastroAP.Card";
+import PerfisPage from "./Components/Perfis/PerfisPage";
+import ApsPage from "./Components/Apartamentos/ApartamentosPage";
+import VeiculosPage from "./Components/Veículos/VeículosPage";
 
 export default function Home() {
   return (
@@ -11,9 +14,36 @@ export default function Home() {
       <Header />
       <HomePage>
         <CadastroPerfilCard />
-        <CadastroVeiculoModal />
-        <CadastroApModal />
+        <CadastroVeiculoCard />
+        <CadastroAPCard />
       </HomePage>
+    </>
+  );
+}
+
+export function Perfis() {
+  return (
+    <>
+      <Header />
+      <PerfisPage />
+    </>
+  );
+}
+
+export function APS() {
+  return (
+    <>
+      <Header />
+      <ApsPage />
+    </>
+  );
+}
+
+export function Veiculos() {
+  return (
+    <>
+      <Header />
+      <VeiculosPage />
     </>
   );
 }
