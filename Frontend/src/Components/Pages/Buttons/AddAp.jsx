@@ -1,45 +1,27 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Background = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 28vw;
-  height: 35vh;
-  margin-top: 25vh;
-  margin-left: 4vw;
-  border-radius: 10px;
-`;
-
-const Título = styled.h2`
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-bottom: 80px;
-`;
-
-const Botão = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  width: 200px;
-  height: 60px;
-  padding: 10px;
-  background-color: #00cc66;
-  color: white;
+const Botão = styled.button`
+  position: absolute; /* Para posicionar dentro do Background */
+  top: 10px; /* Distância do topo */
+  right: 10px; /* Distância da direita */
+  margin-top: 3vh;
+  margin-right: 3vw;
+  width: 40px;
+  height: 40px;
+  background-color: #01c99a;
+  color: #ffffff;
+  font-size: 24px;
   font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 40px;
   cursor: pointer;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background-color: #00994d;
+    background-color: #015b2b;
   }
 `;
 
@@ -128,44 +110,39 @@ const SubmitButton = styled.button`
   }
 `;
 
-export default function CadastroPerfilCard() {
+export default function AddAPButton() {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
     <>
-      <Background>
-        <Título>CADASTRE UM PERFIL</Título>
-        <Botão onClick={() => setModalAberto(true)}>
-          Clique aqui para cadastrar!
-        </Botão>
-      </Background>
+      <Botão onClick={() => setModalAberto(true)}>+</Botão>
 
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
             <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
-            <TítuloModal>Cadastro de Perfil</TítuloModal>
+            <TítuloModal>Cadastro de Apartamento</TítuloModal>
             {/* <form onSubmit={handleSubmit}>  */}
-            <Label>Nome:</Label>
+            <Label>Placa:</Label>
             <Input
               type="text"
-              placeholder="Digite o nome da pessoa"
+              placeholder="Digite a placa do veículo"
               // value={licensePlate}
               // onChange={(e) => setLicensePlate(e.target.value)}
             />
 
-            <Label>Telefone:</Label>
+            <Label>Modelo:</Label>
             <Input
               type="text"
-              placeholder="Digite o telefone"
+              placeholder="Digite o modelo do veículo"
               // value={nameOwner}
               // onChange={(e) => setNameOwner(e.target.value)}
             />
 
-            <Label>Email:</Label>
+            <Label>Cor:</Label>
             <Input
               type="text"
-              placeholder="Digite o email"
+              placeholder="Digite a cor do veículo"
               // value={ownerCelphone}
               // onChange={(e) => setOwnerCelphone(e.target.value)}
             />

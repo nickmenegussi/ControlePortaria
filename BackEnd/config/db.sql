@@ -10,7 +10,7 @@ create table Moradores(
     criado_em timestamp default current_timestamp NOT NULL
  
 );
- 
+
 create table Veiculos(
 	idVeiculos INT PRIMARY KEY AUTO_INCREMENT,
 	placa VARCHAR(7) NOT NULL,

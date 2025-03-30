@@ -128,13 +128,13 @@ const SubmitButton = styled.button`
   }
 `;
 
-export default function CadastroAPCard() {
+export default function CadastroVeiculoCard() {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
     <>
       <Background>
-        <Título>CADASTRE UM APARTAMENTO</Título>
+        <Título>CADASTRE UM VEÍCULO</Título>
         <Botão onClick={() => setModalAberto(true)}>
           Clique aqui para cadastrar!
         </Botão>
@@ -144,28 +144,28 @@ export default function CadastroAPCard() {
         <ModalFundo>
           <ModalConteúdo>
             <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
-            <TítuloModal>Cadastro de Perfil</TítuloModal>
+            <TítuloModal>Cadastro de Veículo</TítuloModal>
             {/* <form onSubmit={handleSubmit}>  */}
-            <Label>Nome:</Label>
+            <Label>Placa:</Label>
             <Input
               type="text"
-              placeholder="Digite o nome da pessoa"
+              placeholder="Digite a placa do veículo"
               // value={licensePlate}
               // onChange={(e) => setLicensePlate(e.target.value)}
             />
 
-            <Label>Telefone:</Label>
+            <Label>Modelo:</Label>
             <Input
               type="text"
-              placeholder="Digite o telefone"
+              placeholder="Digite o modelo do veículo"
               // value={nameOwner}
               // onChange={(e) => setNameOwner(e.target.value)}
             />
 
-            <Label>Email:</Label>
+            <Label>Cor:</Label>
             <Input
               type="text"
-              placeholder="Digite o email"
+              placeholder="Digite a cor do veículo"
               // value={ownerCelphone}
               // onChange={(e) => setOwnerCelphone(e.target.value)}
             />

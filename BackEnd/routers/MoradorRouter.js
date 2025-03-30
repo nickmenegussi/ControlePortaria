@@ -1,11 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const {CreateMorador, viewMorador, UpdateMoradores ,DeleteMoradores} = require('../controllers/MoradoresControllers')
+const express = require("express");
+const router = express.Router();
+const {
+  CreateMorador,
+  viewMorador,
+  UpdateMoradores,
+  DeleteMoradores,
+} = require("../controllers/MoradoresControllers");
 
-router.get('/morador', viewMorador)
-router.post('/morador/create', CreateMorador)
+router.get("/perfil/lista", viewMorador);
+router.post("/perfil/cadastro", CreateMorador);
 
-router.put('/morador/:idMorador/update', UpdateMoradores)
-router.delete('/morador/:idMorador/delete', DeleteMoradores)
+router.put("/perfil/:idMoradores/update", UpdateMoradores);
+router.delete("/perfil/:idMoradores/delete", DeleteMoradores);
 
-module.exports = router
+module.exports = router;

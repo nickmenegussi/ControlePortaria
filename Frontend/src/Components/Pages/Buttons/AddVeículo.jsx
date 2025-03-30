@@ -1,45 +1,27 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Background = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 28vw;
-  height: 35vh;
-  margin-top: 25vh;
-  margin-left: 4vw;
-  border-radius: 10px;
-`;
-
-const Título = styled.h2`
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-bottom: 80px;
-`;
-
-const Botão = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  width: 200px;
-  height: 60px;
-  padding: 10px;
-  background-color: #00cc66;
-  color: white;
+const Botão = styled.button`
+  position: absolute; /* Para posicionar dentro do Background */
+  top: 10px; /* Distância do topo */
+  right: 10px; /* Distância da direita */
+  margin-top: 3vh;
+  margin-right: 3vw;
+  width: 40px;
+  height: 40px;
+  background-color: #01c99a;
+  color: #ffffff;
+  font-size: 24px;
   font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 40px;
   cursor: pointer;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background-color: #00994d;
+    background-color: #015b2b;
   }
 `;
 
@@ -128,23 +110,18 @@ const SubmitButton = styled.button`
   }
 `;
 
-export default function CadastroVeiculoCard() {
+export default function AddVeiculoButton() {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
     <>
-      <Background>
-        <Título>CADASTRE UM VEÍCULO</Título>
-        <Botão onClick={() => setModalAberto(true)}>
-          Clique aqui para cadastrar!
-        </Botão>
-      </Background>
+      <Botão onClick={() => setModalAberto(true)}>+</Botão>
 
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
             <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
-            <TítuloModal>Cadastro de Perfil</TítuloModal>
+            <TítuloModal>Cadastro de Veículo</TítuloModal>
             {/* <form onSubmit={handleSubmit}>  */}
             <Label>Placa:</Label>
             <Input
