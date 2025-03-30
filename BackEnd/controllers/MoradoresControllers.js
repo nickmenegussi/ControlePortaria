@@ -50,9 +50,6 @@ exports.CreateMorador = (req, res) => {
                 success: false
             })
         }
-
-        
-
             connection.query('INSERT INTO Moradores(nome, telefone, email, status) values(?, ?, ?, ?)', [nome, telefone, email, status], (err, result) => {
                 if(err){
                     return res.status(500).json({
