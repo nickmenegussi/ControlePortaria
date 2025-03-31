@@ -1,14 +1,15 @@
-const API_URL = "http://localhost:3001/ControlePortaria"; // URL da API
+const API_URL = "http://localhost:3001"; // URL da API
 
 // Função para cadastrar um perfil/morador
 export async function cadastrarPerfil(nome, telefone, email, status) {
-  const response = await fetch(`${API_URL}/perfil/cadastro`, {
+  const response = await fetch(`${API_URL}/morador/morador/cadastro`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ nome, telefone, email, status }),
   });
+
 
   return response.json();
 }

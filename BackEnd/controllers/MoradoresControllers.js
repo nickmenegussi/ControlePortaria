@@ -35,7 +35,7 @@ exports.CreateMorador = (req, res) => {
         })
     }
 
-    connection.query('SELECT * FROM Moradores where nome = ? and telefone = ? and email = and status = ?',[nome, telefone, email, status], (err, result) => {
+    connection.query('SELECT * FROM Moradores where nome = ? and telefone = ? and email = ?and status = ?',[nome, telefone, email, status], (err, result) => {
         if(err){
             return res.status(500).json({
                 message: 'Erro ao se conectar com o servidor',

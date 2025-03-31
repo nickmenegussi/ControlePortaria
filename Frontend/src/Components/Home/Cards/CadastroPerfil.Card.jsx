@@ -131,23 +131,36 @@ const SubmitButton = styled.button`
 `;
 
 const ToListLink = styled.p`
-  margin-top: 70px;
-  margin-bottom: -10px;
+  margin-top: 5vh;
+  margin-bottom: 0;
+  margin-left: 21.5vw;
   font-size: 14px;
   color: white;
   font-weight: bold;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
 `;
 
 const StyledLink = styled(Link)`
-  color: #00eeff;
+  color: black;
   font-weight: bold;
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
 
   &:hover {
-    text-decoration: underline;
+    color: green;
   }
+`;
+
+const Message = styled.p`
+  color: green;
+  margin-top: 2vh;
+  margin-left: 19vw;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
 `;
 
 export default function CadastroPerfilCard() {
@@ -158,6 +171,7 @@ export default function CadastroPerfilCard() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState(""); // Estado para armazenar mensagens de erro ou sucesso
+  
 
   //isso será chamado assim que o formulário for enviado
   const handleSubmit = async (event) => {
@@ -200,7 +214,10 @@ export default function CadastroPerfilCard() {
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
-            <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
+            <FecharBotão onClick={() => {
+              setModalAberto(false);
+              setMessage("");
+            }}>✖</FecharBotão>
             <TítuloModal>Cadastro de Perfil</TítuloModal>
 
             <form onSubmit={handleSubmit}>
@@ -229,7 +246,7 @@ export default function CadastroPerfilCard() {
               />
 
               <Label>Status:</Label>
-              <Select
+              <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
@@ -237,18 +254,15 @@ export default function CadastroPerfilCard() {
                 <option value="residente">Residente</option>
                 <option value="proprietario">Proprietário</option>
                 <option value="visitante">Visitante</option>
-              </Select>
+              </select>
               <SubmitButton type="submit">Pronto!</SubmitButton>
             </form>
 
             <ToListLink>
               <StyledLink to="/Perfis">Ver lista de perfis</StyledLink>
             </ToListLink>
+            {message && <Message>{message}</Message>}
           </ModalConteúdo>
-
-          {message && (
-            <p style={{ color: "white", marginTop: "20px" }}>{message}</p>
-          )}
         </ModalFundo>
       )}
     </>

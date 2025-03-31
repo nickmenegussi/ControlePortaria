@@ -7,10 +7,10 @@ const {
   DeleteMoradores,
 } = require("../controllers/MoradoresControllers");
 
-router.get("/perfil/lista", viewMorador);
-router.post("/perfil/cadastro", CreateMorador);
+router.get("/morador/lista", viewMorador);
+router.post("/morador/cadastro", CreateMorador);
 
-router.put("/perfil/:idMoradores/update", UpdateMoradores);
-router.delete("/perfil/:idMoradores/delete", DeleteMoradores);
+router.put("/morador/:idMoradores/update", UpdateMoradores);
+router.delete("/morador/:idMoradores/delete", DeleteMoradores);
 
 module.exports = router;
