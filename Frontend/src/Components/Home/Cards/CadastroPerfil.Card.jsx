@@ -171,7 +171,6 @@ export default function CadastroPerfilCard() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState(""); // Estado para armazenar mensagens de erro ou sucesso
-  
 
   //isso será chamado assim que o formulário for enviado
   const handleSubmit = async (event) => {
@@ -214,10 +213,14 @@ export default function CadastroPerfilCard() {
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
-            <FecharBotão onClick={() => {
-              setModalAberto(false);
-              setMessage("");
-            }}>✖</FecharBotão>
+            <FecharBotão
+              onClick={() => {
+                setModalAberto(false);
+                setMessage("");
+              }}
+            >
+              ✖
+            </FecharBotão>
             <TítuloModal>Cadastro de Perfil</TítuloModal>
 
             <form onSubmit={handleSubmit}>

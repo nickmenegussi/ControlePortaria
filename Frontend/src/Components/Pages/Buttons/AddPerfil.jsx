@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { cadastrarPerfil } from "../../../Services/Api";
 
 const Botão = styled.button`
   position: absolute; /* Para posicionar dentro do Background */
@@ -110,8 +112,76 @@ const SubmitButton = styled.button`
   }
 `;
 
+const ToListLink = styled.p`
+  margin-top: 5vh;
+  margin-bottom: 0;
+  margin-left: 21.5vw;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+
+  &:hover {
+    color: green;
+  }
+`;
+
+const Message = styled.p`
+  color: green;
+  margin-top: 2vh;
+  margin-left: 19vw;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
 export default function AddPerfilButton() {
   const [modalAberto, setModalAberto] = useState(false);
+  //estados para armazenar os valores dos Inputs
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState(""); // Estado para armazenar mensagens de erro ou sucesso
+
+  //isso será chamado assim que o formulário for enviado
+  const handleSubmit = async (event) => {
+    event.preventDefault(); //evita que a página recarregue
+
+    if (!nome || !telefone || !email || !status) {
+      // Verifica se todos os campos estão preenchidos
+      setMessage("Preencha todos os campos!");
+      return;
+    }
+
+    try {
+      const response = await cadastrarPerfil(nome, telefone, email, status); // Chama a função de cadastro da API
+
+      if (response.error) {
+        setMessage(`Erro: ${response.error}`);
+      } else {
+        setMessage("Perfil cadastrado com sucesso!");
+        //limpa os campos do formulário após o cadastro
+        setNome("");
+        setEmail("");
+        setTelefone("");
+        setStatus("");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar Perfil:", error);
+      setMessage("Erro ao cadastrar Perfil.");
+    }
+  };
 
   return (
     <>
@@ -120,42 +190,58 @@ export default function AddPerfilButton() {
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
-            <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
+            <FecharBotão
+              onClick={() => {
+                setModalAberto(false);
+                setMessage("");
+              }}
+            >
+              ✖
+            </FecharBotão>
             <TítuloModal>Cadastro de Perfil</TítuloModal>
-            {/* <form onSubmit={handleSubmit}>  */}
-            <Label>Nome:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o nome da pessoa"
-              // value={licensePlate}
-              // onChange={(e) => setLicensePlate(e.target.value)}
-            />
 
-            <Label>Telefone:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o telefone"
-              // value={nameOwner}
-              // onChange={(e) => setNameOwner(e.target.value)}
-            />
+            <form onSubmit={handleSubmit}>
+              <Label>Nome:</Label>
+              <Input
+                type="text"
+                placeholder="Digite o nome da pessoa"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
 
-            <Label>Email:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o email"
-              // value={ownerCelphone}
-              // onChange={(e) => setOwnerCelphone(e.target.value)}
-            />
+              <Label>Telefone:</Label>
+              <Input
+                type="text"
+                placeholder="Digite o telefone"
+                value={telefone}
+                onChange={(e) => setTelefone(e.target.value)}
+              />
 
-            <Label>Status:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o status"
-              // value={ownerCelphone}
-              // onChange={(e) => setOwnerCelphone(e.target.value)}
-            />
-            <SubmitButton type="submit">Pronto!</SubmitButton>
-            {/* </form> */}
+              <Label>Email:</Label>
+              <Input
+                type="text"
+                placeholder="Digite o email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <Label>Status:</Label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+              >
+                <option value="">Selecione um status</option>
+                <option value="residente">Residente</option>
+                <option value="proprietario">Proprietário</option>
+                <option value="visitante">Visitante</option>
+              </select>
+              <SubmitButton type="submit">Pronto!</SubmitButton>
+            </form>
+
+            <ToListLink>
+              <StyledLink to="/Perfis">Ver lista de perfis</StyledLink>
+            </ToListLink>
+            {message && <Message>{message}</Message>}
           </ModalConteúdo>
         </ModalFundo>
       )}
