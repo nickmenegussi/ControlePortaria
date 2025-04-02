@@ -1,11 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const {ViewVeiculos, CreateVeiculos, UpdateVeiculos, DeleteVeiculos} = require('../controllers/VeiculosControllers')
+const express = require("express");
+const router = express.Router();
+const {
+  ViewVeiculos,
+  CreateVeiculos,
+  UpdateVeiculos,
+  DeleteVeiculos,
+} = require("../controllers/VeiculosControllers");
 
-router.get('/veiculos', ViewVeiculos)
-router.put('/veiculos/:idVeiculos', UpdateVeiculos)
+router.get("/veiculos/lista", ViewVeiculos);
+router.put("/veiculos/:idVeiculos/update", UpdateVeiculos);
 
-router.post('/veiculos/create', CreateVeiculos)
-router.delete('/veiculos/:idVeiculos', DeleteVeiculos)
+router.post("/veiculos/cadastro", CreateVeiculos);
+router.delete("/veiculos/:idVeiculos", DeleteVeiculos);
 
-module.exports = router
+module.exports = router;
