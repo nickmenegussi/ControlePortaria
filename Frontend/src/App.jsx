@@ -7,7 +7,7 @@ import CadastroAPCard from "./Components/Home/Cards/CadastroAP.Card";
 import PerfisPage from "./Components/Pages/Perfis/PerfisPage";
 import ApsPage from "./Components/Pages/Apartamentos/ApartamentosPage";
 import VeiculosPage from "./Components/Pages/Veículos/VeículosPage";
-import AddPerfilButton from "./Components/Pages/Buttons/AddPerfil";
+// import AddPerfilButton from "./Components/Pages/Buttons/AddPerfil";
 import AddVeiculoButton from "./Components/Pages/Buttons/AddVeículo";
 import AddAPButton from "./Components/Pages/Buttons/AddAp";
 
@@ -29,7 +29,6 @@ export function Perfis() {
     <>
       <Header />
       <PerfisPage>
-        <AddPerfilButton />
       </PerfisPage>
     </>
   );

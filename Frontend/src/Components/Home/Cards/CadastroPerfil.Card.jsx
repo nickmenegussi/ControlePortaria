@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { cadastrarPerfil } from "../../../Services/Api";
+import { cadastrarPerfil } from "../../../Services/Perfis.Api";
 
 const Background = styled.div`
   background-color: white;

@@ -8,7 +8,7 @@ const ApsPage = styled.div`
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  position: absolute;
+  // position: absolute;
 `;
 
 export default ApsPage;

@@ -4,18 +4,19 @@ import {
   listarPerfil,
   atualizarPerfil,
   deletarPerfil,
-} from "../../../Services/Api";
+} from "../../../Services/Perfis.Api";
 import { Link } from "react-router-dom";
+import AddPerfilButton from "../Buttons/AddPerfil";
 
 const Background = styled.div`
   background-color: #696969;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: calc(100vh - 60px);
-  margin: 0;
-  padding: 0;
+  // margin: 0;
+  padding: 20px 0;
   overflow-y: auto;
-  position: absolute;
 `;
 
 const CardContainer = styled.div`
@@ -23,31 +24,47 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  max-width: 90%;
+  margin-top: 4vh;
+  padding-bottom: 90px; /* Espaço extra no final */
+  width: 100%;
 `;
 
 const Card = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 28vw;
-  height: 35vh;
-  margin-top: 25vh;
-  margin-left: 4vw;
+  width: 400px;
+  min-height: 350px;
+  padding: 20px;
   border-radius: 10px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const TituloCard = styled.div`
+  display: flex;
+  margin-top: 2vh;
+  margin-bottom: 0;
   font-weight: bold;
   font-family: Arial, sans-serif;
 `;
 
+const Texts = styled.div`
+  display: flex;
+  // margin-bottom: 1px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
+
 const Button = styled.button`
   margin-top: 20px;
-  display: block;
   width: 250px;
   height: 40px;
-  margin-top: 5vh;
-  margin-left: 18vw;
+  margin-top: 2vh;
   padding: 10px;
   background-color: #ff0000;
   color: white;
@@ -64,12 +81,10 @@ const Button = styled.button`
 `;
 
 const EditButton = styled.button`
-  margin-top: 20px;
-  display: block;
+  margin-top: 1vh;
   width: 250px;
   height: 40px;
   margin-top: 5vh;
-  margin-left: 18vw;
   padding: 10px;
   background-color: #000000;
   color: white;
@@ -268,12 +283,14 @@ export default function PerfisPage() {
   return (
     <>
       <Background>
+        <AddPerfilButton />
         <CardContainer>
           {perfis.map((perfil) => (
             <Card key={perfil.idMoradores}>
-              <h2>{perfil.nome}</h2>
-              <p>Telefone: {perfil.telefone}</p>
-              <p>Email: {perfil.email}</p>
+            <TituloCard><h2>{perfil.nome}</h2></TituloCard>
+            <Texts><p>Telefone: {perfil.telefone}</p></Texts> 
+            <Texts><p>Email: {perfil.email}</p></Texts>
+            <Texts><p>{perfil.status}</p> </Texts>
               <EditButton onClick={() => abrirModalEdicao(perfil)}>
                 Editar
               </EditButton>
