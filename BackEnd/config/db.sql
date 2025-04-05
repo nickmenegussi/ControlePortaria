@@ -16,6 +16,7 @@ create table Veiculos(
 	placa VARCHAR(7) NOT NULL,
     modelo VARCHAR(255) NOT NULL,
     cor VARCHAR(255) NOT NULL,
+    Box VARCHAR(255) NOT NULL,
 	Moradores_id INT NOT NULL,  
     criado_em timestamp default current_timestamp NOT NULL,
     FOREIGN KEY (Moradores_id) REFERENCES Moradores(idMoradores)
@@ -23,7 +24,7 @@ create table Veiculos(
 );
  
 CREATE TABLE Apartamento (
-    idApartamento int not null,
+    idApartamento INT PRIMARY KEY AUTO_INCREMENT,
     numeroApartamento int not null,
     bloco VARCHAR(1) NOT NULL,
     idMorador int not null,

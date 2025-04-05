@@ -28,8 +28,7 @@ export function Perfis() {
   return (
     <>
       <Header />
-      <PerfisPage>
-      </PerfisPage>
+      <PerfisPage></PerfisPage>
     </>
   );
 }
@@ -38,9 +37,7 @@ export function Veiculos() {
   return (
     <>
       <Header />
-      <VeiculosPage>
-        <AddVeiculoButton />
-      </VeiculosPage>
+      <VeiculosPage></VeiculosPage>
     </>
   );
 }
@@ -49,9 +46,7 @@ export function APS() {
   return (
     <>
       <Header />
-      <ApsPage>
-        <AddAPButton />
-      </ApsPage>
+      <ApsPage></ApsPage>
     </>
   );
 }

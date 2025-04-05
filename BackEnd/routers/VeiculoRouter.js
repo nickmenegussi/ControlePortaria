@@ -11,6 +11,6 @@ router.get("/veiculos/lista", ViewVeiculos);
 router.put("/veiculos/:idVeiculos/update", UpdateVeiculos);
 
 router.post("/veiculos/cadastro", CreateVeiculos);
-router.delete("/veiculos/:idVeiculos", DeleteVeiculos);
+router.delete("/veiculos/:idVeiculos/delete", DeleteVeiculos);
 
 module.exports = router;

@@ -1,11 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const {CreateApartamento, ViewApartamento, UpdateApartamento ,DeleteApartamento} = require('../controllers/ApartamentoControllers')
+const express = require("express");
+const router = express.Router();
+const {
+  CreateApartamento,
+  ViewApartamento,
+  UpdateApartamento,
+  DeleteApartamento,
+} = require("../controllers/ApartamentoControllers");
 
-router.get('/apartamento', ViewApartamento)
-router.post('/apartamento/create', CreateApartamento)
+router.get("/apartamento/lista", ViewApartamento);
+router.post("/apartamento/cadastro", CreateApartamento);
 
-router.put('/apartamento/:idApartamento/update', UpdateApartamento)
-router.delete('/apartamento/:idApartamento/delete', DeleteApartamento)
+router.put("/apartamento/:idApartamento/update", UpdateApartamento);
+router.delete("/apartamento/:idApartamento/delete", DeleteApartamento);
 
-module.exports = router
+module.exports = router;

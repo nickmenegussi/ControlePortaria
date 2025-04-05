@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { cadastrarVeiculo } from "../../../Services/Veiculos.Api";
+import { listarPerfil } from "../../../Services/Perfis.Api";
 
 const Botão = styled.button`
   position: absolute; /* Para posicionar dentro do Background */
@@ -110,8 +113,94 @@ const SubmitButton = styled.button`
   }
 `;
 
+const ToListLink = styled.p`
+  margin-top: 2vh;
+  margin-bottom: 0;
+  margin-left: 21.5vw;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+
+  &:hover {
+    color: green;
+  }
+`;
+
+const Message = styled.p`
+  color: green;
+  margin-top: 2vh;
+  margin-left: 19vw;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
 export default function AddVeiculoButton() {
   const [modalAberto, setModalAberto] = useState(false);
+  const [placa, setPlaca] = useState("");
+  const [modelo, setModelo] = useState("");
+  const [cor, setCor] = useState("");
+  const [Box, setBox] = useState("");
+  const [Moradores, setMoradores] = useState([]);
+  const [Moradores_id, setMoradores_id] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    async function buscarMoradores() {
+      try {
+        const res = await listarPerfil();
+        setMoradores(res.data);
+      } catch (err) {
+        console.error("Erro ao buscar moradores", err);
+      }
+    }
+
+    buscarMoradores();
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); //evita que a página recarregue
+
+    if (!placa || !modelo || !cor || !Box || !Moradores_id) {
+      setMessage("Preencha todos os campos!");
+      return;
+    }
+
+    try {
+      const response = await cadastrarVeiculo({
+        placa,
+        modelo,
+        cor,
+        Box,
+        Moradores_id: Number(Moradores_id),
+      });
+
+      if (response.error) {
+        setMessage(`Erro: ${response.error}`);
+      } else {
+        setMessage("Veículo cadastrado com sucesso!");
+        setPlaca("");
+        setModelo("");
+        setCor("");
+        setBox("");
+        setMoradores_id("");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar veículo:", error);
+      setMessage("Erro ao cadastrar veículo.");
+    }
+  };
 
   return (
     <>
@@ -120,42 +209,68 @@ export default function AddVeiculoButton() {
       {modalAberto && (
         <ModalFundo>
           <ModalConteúdo>
-            <FecharBotão onClick={() => setModalAberto(false)}>✖</FecharBotão>
+            <FecharBotão
+              onClick={() => {
+                setModalAberto(false);
+                setMessage("");
+              }}
+            >
+              ✖
+            </FecharBotão>
             <TítuloModal>Cadastro de Veículo</TítuloModal>
-            {/* <form onSubmit={handleSubmit}>  */}
-            <Label>Placa:</Label>
-            <Input
-              type="text"
-              placeholder="Digite a placa do veículo"
-              // value={licensePlate}
-              // onChange={(e) => setLicensePlate(e.target.value)}
-            />
 
-            <Label>Modelo:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o modelo do veículo"
-              // value={nameOwner}
-              // onChange={(e) => setNameOwner(e.target.value)}
-            />
+            <form onSubmit={handleSubmit}>
+              <Label>Placa:</Label>
+              <Input
+                type="text"
+                placeholder="Digite a placa do veículo"
+                value={placa}
+                onChange={(e) => setPlaca(e.target.value)}
+              />
 
-            <Label>Cor:</Label>
-            <Input
-              type="text"
-              placeholder="Digite a cor do veículo"
-              // value={ownerCelphone}
-              // onChange={(e) => setOwnerCelphone(e.target.value)}
-            />
+              <Label>Modelo:</Label>
+              <Input
+                type="text"
+                placeholder="Digite o modelo do veículo"
+                value={modelo}
+                onChange={(e) => setModelo(e.target.value)}
+              />
 
-            <Label>Status:</Label>
-            <Input
-              type="text"
-              placeholder="Digite o status"
-              // value={ownerCelphone}
-              // onChange={(e) => setOwnerCelphone(e.target.value)}
-            />
-            <SubmitButton type="submit">Pronto!</SubmitButton>
-            {/* </form> */}
+              <Label>Cor:</Label>
+              <Input
+                type="text"
+                placeholder="Digite a cor do veículo"
+                value={cor}
+                onChange={(e) => setCor(e.target.value)}
+              />
+
+              <Label>Vaga:</Label>
+              <Input
+                type="text"
+                placeholder="Digite a vaga do veículo"
+                value={Box}
+                onChange={(e) => setBox(e.target.value)}
+              />
+
+              <Label>Dono:</Label>
+              <select
+                value={Moradores_id}
+                onChange={(e) => setMoradores_id(e.target.value)}
+              >
+                <option value="">Selecione o nome do dono</option>
+                {Moradores.map((morador) => (
+                  <option key={morador.idMoradores} value={morador.idMoradores}>
+                    {morador.nome}
+                  </option>
+                ))}
+              </select>
+              <SubmitButton type="submit">Pronto!</SubmitButton>
+            </form>
+
+            <ToListLink>
+              <StyledLink to="/Veículos">Ver lista de veículos</StyledLink>
+            </ToListLink>
+            {message && <Message>{message}</Message>}
           </ModalConteúdo>
         </ModalFundo>
       )}
