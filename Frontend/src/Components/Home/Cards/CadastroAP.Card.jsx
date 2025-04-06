@@ -15,6 +15,26 @@ const Background = styled.div`
   margin-top: 25vh;
   margin-left: 4vw;
   border-radius: 10px;
+
+  @media (max-width: 1000px) {
+    width: 26vw;
+    height: 33vh;
+  }
+
+  @media (max-width: 665px) {
+    width: 24vw;
+    height: 31vh;
+  }
+
+  @media (max-width: 590px) {
+    margin-left: 6vw;
+  }
+
+  @media (max-width: 410px) {
+    width: 22vw;
+    height: 29vh;
+    margin-left: 5vw;
+  }
 `;
 
 const Título = styled.h2`
@@ -22,6 +42,22 @@ const Título = styled.h2`
   font-family: Arial, sans-serif;
   text-align: center;
   margin-bottom: 80px;
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 665px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 487px) {
+    font-size: 10px;
+  }
+
+  @media (max-width: 373px) {
+    font-size: 9px;
+  }
 `;
 
 const Botão = styled.div`
@@ -43,6 +79,36 @@ const Botão = styled.div`
 
   &:hover {
     background-color: #00994d;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+    width: 180px;
+    height: 55px;
+  }
+
+  @media (max-width: 755px) {
+    font-size: 14px;
+    width: 140px;
+    height: 50px;
+  }
+
+  @media (max-width: 615px) {
+    font-size: 10px;
+    width: 110px;
+    height: 30px;
+  }
+
+  @media (max-width: 487px) {
+    font-size: 8px;
+    width: 80px;
+    height: 10px;
+  }
+
+  @media (max-width: 373px) {
+    font-size: 6px;
+    width: 60px;
+    height: 10px;
   }
 `;
 
@@ -90,6 +156,26 @@ const TítuloModal = styled.h2`
   text-align: center;
   vertical-align: top;
   margin-bottom: 30px;
+
+  @media (max-width: 1225px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 12px;
+  }
 `;
 
 const Label = styled.label`
@@ -98,6 +184,26 @@ const Label = styled.label`
   font-weight: bold;
   font-family: Arial, sans-serif;
   text-align: left;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 8px;
+  }
 `;
 
 const Input = styled.input`
@@ -107,6 +213,26 @@ const Input = styled.input`
   border-radius: 5px;
   font-family: Arial, sans-serif;
   background-color: #c7c5c5;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 7px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -129,17 +255,77 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #00994d;
   }
+
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    width: 230px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    width: 220px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    width: 210px;
+    height: 35px;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    width: 200px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 2vw;
+    width: 160px;
+    height: 25px;
+    font-size: 9px;
+  }
 `;
 
 const ToListLink = styled.p`
   margin-top: 2vh;
   margin-bottom: 0;
-  margin-left: 21.5vw;
+  margin-left: 20vw;
   font-size: 14px;
   color: white;
   font-weight: bold;
   font-weight: bold;
   font-family: Arial, sans-serif;
+
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    font-size: 13px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    font-size: 12px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 2vw;
+    font-size: 9px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -162,6 +348,31 @@ const Message = styled.p`
   margin-left: 19vw;
   font-weight: bold;
   font-family: Arial, sans-serif;
+
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    font-size: 13px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    font-size: 12.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    font-size: 12px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 3vw;
+    font-size: 11.5px;
+  }
 `;
 
 export default function CadastroPerfilCard() {

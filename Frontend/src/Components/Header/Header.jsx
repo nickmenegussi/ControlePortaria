@@ -6,14 +6,12 @@ const HeaderDiv = styled.header`
   display: flex;
   position: sticky;
   top: 0;
-  /* justify-content: center; */
   align-items: center;
   padding: 35px;
   width: 100%;
   height: 13vh;
   margin: 0;
   box-sizing: border-box;
-  /* margin-left: -8px; */
   border-top: none;
 `;
 
@@ -31,6 +29,32 @@ const HomeTxt = styled(Link)`
   &:hover {
     color: #7cffb9;
   }
+
+  @media (max-width: 1203px) {
+    font-size: 18px;
+    margin-right: 27vw;
+  }
+
+  @media (max-width: 1039px) {
+    font-size: 17px;
+    margin-right: 25vw;
+  }
+
+  @media (max-width: 855px) {
+    font-size: 16px;
+    margin-right: 20vw;
+  }
+
+  @media (max-width: 665px) {
+    font-size: 14px;
+    margin-right: 17vw;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 10px;
+    margin-left: 1vw;
+    margin-right: 13vw;
+  }
 `;
 
 const PerfisTxt = styled(Link)`
@@ -44,6 +68,26 @@ const PerfisTxt = styled(Link)`
 
   &:hover {
     color: #7cffb9;
+  }
+
+  @media (max-width: 1203px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1039px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 855px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 665px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 10px;
   }
 `;
 
@@ -59,6 +103,26 @@ const VeiculosTxt = styled(Link)`
   &:hover {
     color: #7cffb9;
   }
+
+  @media (max-width: 1203px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1039px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 855px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 665px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 10px;
+  }
 `;
 
 const ApartamentosTxt = styled(Link)`
@@ -71,6 +135,26 @@ const ApartamentosTxt = styled(Link)`
 
   &:hover {
     color: #7cffb9;
+  }
+
+  @media (max-width: 1203px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1039px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 855px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 665px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 10px;
   }
 `;
 

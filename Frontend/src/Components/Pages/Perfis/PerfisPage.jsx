@@ -5,7 +5,6 @@ import {
   atualizarPerfil,
   deletarPerfil,
 } from "../../../Services/Perfis.Api";
-import { Link } from "react-router-dom";
 import AddPerfilButton from "../Buttons/AddPerfil";
 
 const Background = styled.div`
@@ -42,6 +41,11 @@ const Card = styled.div`
   font-weight: bold;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 440px) {
+    width: 300px;
+    min-height: 350px;
+  }
 `;
 
 const TituloCard = styled.div`
@@ -58,7 +62,6 @@ const Texts = styled.div`
   font-weight: bold;
   font-family: Arial, sans-serif;
 `;
-
 
 const Button = styled.button`
   margin-top: 20px;
@@ -114,14 +117,19 @@ const ModalFundo = styled.div`
 
 const ModalConteúdo = styled.div`
   background-color: #dcdcdc;
-  width: 60vw;
-  height: 70vh;
+  width: 75vw;
+  height: 85vh;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 40px 70px;
   position: relative;
+
+  @media (max-width: 1800px) {
+    width: 70vw;
+    height: 82vh;
+  }
 `;
 
 const FecharBotão = styled.button`
@@ -144,6 +152,26 @@ const TítuloModal = styled.h2`
   text-align: center;
   vertical-align: top;
   margin-bottom: 30px;
+
+  @media (max-width: 1225px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 12px;
+  }
 `;
 
 const Label = styled.label`
@@ -152,6 +180,26 @@ const Label = styled.label`
   font-weight: bold;
   font-family: Arial, sans-serif;
   text-align: left;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 8px;
+  }
 `;
 
 const Input = styled.input`
@@ -161,6 +209,26 @@ const Input = styled.input`
   border-radius: 5px;
   font-family: Arial, sans-serif;
   background-color: #c7c5c5;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 7px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -169,7 +237,7 @@ const SubmitButton = styled.button`
   width: 250px;
   height: 40px;
   margin-top: 5vh;
-  margin-left: 18vw;
+  margin-left: 25vw;
   padding: 10px;
   background-color: #00cc66;
   color: white;
@@ -183,39 +251,46 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #00994d;
   }
-`;
 
-const ToListLink = styled.p`
-  margin-top: 5vh;
-  margin-bottom: 0;
-  margin-left: 21.5vw;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  font-weight: bold;
-  margin-bottom: 0;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-
-  &:hover {
-    color: green;
+  @media (max-width: 1800px) {
+    margin-top: 2vh;
+    margin-left: 23vw;
   }
-`;
 
-const Message = styled.p`
-  color: green;
-  margin-top: 2vh;
-  margin-left: 19vw;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    width: 230px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    width: 220px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    width: 210px;
+    height: 35px;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    width: 200px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 2vw;
+    width: 160px;
+    height: 25px;
+    font-size: 9px;
+  }
 `;
 
 export default function PerfisPage() {
@@ -287,10 +362,18 @@ export default function PerfisPage() {
         <CardContainer>
           {perfis.map((perfil) => (
             <Card key={perfil.idMoradores}>
-            <TituloCard><h2>{perfil.nome}</h2></TituloCard>
-            <Texts><p>Telefone: {perfil.telefone}</p></Texts> 
-            <Texts><p>Email: {perfil.email}</p></Texts>
-            <Texts><p>{perfil.status}</p> </Texts>
+              <TituloCard>
+                <h2>{perfil.nome}</h2>
+              </TituloCard>
+              <Texts>
+                <p>Telefone: {perfil.telefone}</p>
+              </Texts>
+              <Texts>
+                <p>Email: {perfil.email}</p>
+              </Texts>
+              <Texts>
+                <p>{perfil.status}</p>{" "}
+              </Texts>
               <EditButton onClick={() => abrirModalEdicao(perfil)}>
                 Editar
               </EditButton>

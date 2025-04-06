@@ -43,6 +43,11 @@ const Card = styled.div`
   font-weight: bold;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 440px) {
+    width: 300px;
+    min-height: 350px;
+  }
 `;
 
 const TituloCard = styled.div`
@@ -144,6 +149,26 @@ const TítuloModal = styled.h2`
   text-align: center;
   vertical-align: top;
   margin-bottom: 30px;
+
+  @media (max-width: 1225px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 12px;
+  }
 `;
 
 const Label = styled.label`
@@ -152,6 +177,26 @@ const Label = styled.label`
   font-weight: bold;
   font-family: Arial, sans-serif;
   text-align: left;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 8px;
+  }
 `;
 
 const Input = styled.input`
@@ -161,6 +206,26 @@ const Input = styled.input`
   border-radius: 5px;
   font-family: Arial, sans-serif;
   background-color: #c7c5c5;
+
+  @media (max-width: 1225px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 7px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -183,39 +248,41 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #00994d;
   }
-`;
 
-const ToListLink = styled.p`
-  margin-top: 5vh;
-  margin-bottom: 0;
-  margin-left: 21.5vw;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  font-weight: bold;
-  margin-bottom: 0;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-
-  &:hover {
-    color: green;
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    width: 230px;
+    height: 38px;
+    font-size: 15px;
   }
-`;
 
-const Message = styled.p`
-  color: green;
-  margin-top: 2vh;
-  margin-left: 19vw;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    width: 220px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    width: 210px;
+    height: 35px;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    width: 200px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 2vw;
+    width: 160px;
+    height: 25px;
+    font-size: 9px;
+  }
 `;
 
 export default function ApsPage() {
